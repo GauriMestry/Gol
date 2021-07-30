@@ -1,5 +1,24 @@
 window.onload = function() {
+    
+    var petritableWidth = 80;
+    var petritableHeight = 130;
+    var generator = new LifeGen(petritableWidth,petritableHeight);
+    var intervalId;
+    var startBtnListener = function() {
+        generator.theTable.syncLifeStatusToDrawing();
+        intervalId = setInterval(function() { generator.lifeAndDeath(); }, 50);
+        this.setAttribute("disabled", true);
+    }
+    var resetBtnListener = function() {
+        generator.theTable.deletePetritable();
+        clearInterval(intervalId);
+        document.getElementById("startBtn").removeAttribute("disabled");
+        generator = new LifeGen(petritableWidth,petritableHeight);
+    }
+    document.getElementById("startBtn").addEventListener("click", startBtnListener, false);
+    document.getElementById("resetBtn").addEventListener("click", resetBtnListener, false);
 
+    
     function Petritable(w, h)
     {
         this.width = w;
@@ -192,23 +211,6 @@ window.onload = function() {
                 }
             }
         }
-    }
-    var petritableWidth = 80;
-    var petritableHeight = 130;
-    var generator = new LifeGen(petritableWidth,petritableHeight);
-    var intervalId;
-    var startBtnListener = function() {
-        generator.theTable.syncLifeStatusToDrawing();
-        intervalId = setInterval(function() { generator.lifeAndDeath(); }, 50);
-        this.setAttribute("disabled", true);
-    }
-    var resetBtnListener = function() {
-        generator.theTable.deletePetritable();
-        clearInterval(intervalId);
-        document.getElementById("startBtn").removeAttribute("disabled");
-        generator = new LifeGen(petritableWidth,petritableHeight);
-    }
-    document.getElementById("startBtn").addEventListener("click", startBtnListener, false);
-    document.getElementById("resetBtn").addEventListener("click", resetBtnListener, false);
-}
+      }
+   }
  
