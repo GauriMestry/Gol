@@ -1,0 +1,34 @@
+.petritable {
+    border: 1px solid  #a2cffe;
+    border-collapse: collapse;
+    margin: auto;
+}
+.deadcell {
+    border: 1px solid #000133;
+    border-collapse: collapse;
+    width:4px;
+    height:4px;
+    background-color: #a2cffe;
+}
+.alivecell {
+    border: 1px solid #000133;
+    border-collapse: collapse;
+    width:4px;
+    height:4px;
+    background-color:#000133;
+}
+.body {
+    font-family:Times New Roman;
+    background-color:#000133;
+    color:white;
+}
+.buttons {
+    border-radius:4px;
+    color:#000133;
+    font-size:15px
+    font-family:sans-serif;
+    background-color: #a2cffe;
+}
+.allignment {
+    text-align: center;
+}
